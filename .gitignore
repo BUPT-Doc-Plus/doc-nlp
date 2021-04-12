@@ -1,0 +1,11 @@
+data/
+__pycache__/
+.vscode/
+output/
+results/
+pt/
+*.pyc
+*.bin
+*.src
+*.tgt
+*.dec
