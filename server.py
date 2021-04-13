@@ -124,6 +124,10 @@ def summarize(ws):
     logger.info("Connection released")
 
 if __name__ == "__main__":
-    server = pywsgi.WSGIServer(("localhost", 8848), app, handler_class=WebSocketHandler)
-    logger.info("Server started")
+    import configparser
+    conf = configparser.ConfigParser()
+    conf.read("../config.ini")
+    host, port = conf["doc-nlp"]["host"], conf["doc-nlp"].getint("port")
+    server = pywsgi.WSGIServer((host, port), app, handler_class=WebSocketHandler)
+    logger.info(f"Server listening at {host}:{port}")
     server.serve_forever()

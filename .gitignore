@@ -9,3 +9,5 @@ pt/
 *.src
 *.tgt
 *.dec
+*.log
+*.pid
